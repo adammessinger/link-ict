@@ -7,6 +7,7 @@
 import path from 'path'
 import webpack from 'webpack'
 import merge from 'lodash.merge'
+import IconsPlugin from 'icons-loader/IconsPlugin'
 
 const DEBUG = !process.argv.includes('release')
 const VERBOSE = process.argv.includes('verbose')
@@ -60,6 +61,11 @@ const config = {
       'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
       '__DEV__': DEBUG,
     }),
+    new IconsPlugin({
+      fontName: 'icons',
+      normalize: true,
+      formats: ['svg']
+    }),
   ],
   module: {
     loaders: [
@@ -78,6 +84,9 @@ const config = {
       }, {
         test: /\.(eot|ttf|wav|mp3)$/,
         loader: 'file-loader',
+      }, {
+        test: /\.svg$/,
+        loader: 'icons-loader',
       },
     ],
   },

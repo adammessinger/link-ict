@@ -1,9 +1,11 @@
 import React from 'react'
 import './CategoryList.scss'
 import Category from '../Category'
+import iconFont from 'icons-loader'
+
 
 const categories = [
-  { name: 'icon-home', 'icon': 'Shelter'},
+  { name: 'icon-shelter', 'icon': 'Shelter'},
   { name: 'icon-food', 'icon': 'Food'},
   { name: 'icon-plus', 'icon': 'Medical'},
   { name: 'icon-droplet', 'icon': 'Hygiene'},
